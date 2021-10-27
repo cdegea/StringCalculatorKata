@@ -18,12 +18,18 @@ namespace StringCalculatorKata
 
         [Theory]
         [InlineData("1,2", 3)]
+        [InlineData("2,1001", 2)]
         [InlineData("1,3", 4)]
         [InlineData("1,3,5", 9)]
         [InlineData("1\n3,5", 9)]
         [InlineData("1\n3\n5", 9)]
         [InlineData("//@\n1@3@5", 9)]
         [InlineData("//-\n1-3-5", 9)]
+        [InlineData("//[\n1[3[5", 9)]
+        [InlineData("//]\n1]3]5", 9)]
+        [InlineData("//[***]\n1***3***5", 9)]
+        [InlineData("//[*][%]\n1*2%3", 6)]
+        [InlineData("//[**][%-]\n1**2%-3", 6)]
         public void StringWithNumbersReturnsSum(string numbers, int expected)
         {
             var result = StringCalculator.Add(numbers);
