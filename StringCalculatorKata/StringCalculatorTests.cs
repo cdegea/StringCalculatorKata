@@ -1,4 +1,5 @@
 using System;
+using FluentAssertions;
 using Xunit;
 
 namespace StringCalculatorKata
@@ -22,10 +23,20 @@ namespace StringCalculatorKata
         [InlineData("1\n3,5", 9)]
         [InlineData("1\n3\n5", 9)]
         [InlineData("//@\n1@3@5", 9)]
+        [InlineData("//-\n1-3-5", 9)]
         public void StringWithNumbersReturnsSum(string numbers, int expected)
         {
             var result = StringCalculator.Add(numbers);
             Assert.Equal(expected, result);
+        }
+
+        [Theory]
+        [InlineData( "-1,2")]
+        public void StringWithNegativeNumbersThrowsException(string numbers) {
+            Action action = () => StringCalculator.Add( numbers );
+            action.Should()
+                .Throw<ArgumentException>()
+                .Where( e => e.Message.StartsWith( "negatives not allowed" ) );
         }
 
 
