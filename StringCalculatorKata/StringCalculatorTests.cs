@@ -21,7 +21,7 @@ namespace StringCalculatorKata
         [InlineData("1,3,5", 9)]
         [InlineData("1\n3,5", 9)]
         [InlineData("1\n3\n5", 9)]
-        [InlineData("@1@3@5", 9)]
+        [InlineData("//@\n1@3@5", 9)]
         public void StringWithNumbersReturnsSum(string numbers, int expected)
         {
             var result = StringCalculator.Add(numbers);
