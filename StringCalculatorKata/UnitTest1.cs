@@ -11,18 +11,21 @@ namespace StringCalculatorKata
 			Assert.Equal(0, result);
 		}
 
-		[Fact]
-		public void Number1Returns1()
+		[Theory]
+		[InlineData("1", 1)]
+		[InlineData("2", 2)]
+		public void ANumberReturnsTheNumber(string numbers, int result)
 		{
-			int result = StringCalculator.Add("1");
-			Assert.Equal(1, result);
+			Assert.Equal(result, StringCalculator.Add(numbers));
 		}
 
-		[Fact]
-		public void Numbers1And2Returns3()
+		[Theory]
+		[InlineData("1,2", 3)]
+		[InlineData("2,4", 6)]
+		[InlineData("0,1,1,2,3,5,8,13", 33)]
+		public void SeparatedNumbersWithCommaReturnsTheSum(string numbers, int result)
 		{
-			int result = StringCalculator.Add("1,2");
-			Assert.Equal(3, result);
+			Assert.Equal(result, StringCalculator.Add(numbers));
 		}
 	}
 }
