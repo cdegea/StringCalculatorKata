@@ -9,31 +9,13 @@ namespace StringCalculatorKata
         [InlineData ("", 0)]
         [InlineData ("1", 1)]
         [InlineData ("2", 2)]
+        [InlineData ("1,2", 3)]
+        [InlineData ("2,3", 5)]
+        [InlineData ("2,4", 6)]
         public void NumbersInStringReturnsNumbers(string numbers, int expectedNumber)
         {
             var result = StringCalculator.Add(numbers);
             Assert.Equal(expectedNumber, result);
-        }
-
-        [Fact]
-        public void Numbers1And2Returns3()
-        {
-            var result = StringCalculator.Add("1,2");
-            Assert.Equal(3, result);
-        }
-
-        [Fact]
-        public void Numbers2And3Returns5()
-        {
-            var result = StringCalculator.Add("2,3");
-            Assert.Equal(5, result);
-        }
-
-        [Fact]
-        public void Numbers2And4Returns6()
-        {
-            var result = StringCalculator.Add("2,4");
-            Assert.Equal(6, result);
         }
     }
 }
