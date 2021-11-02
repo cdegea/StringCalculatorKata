@@ -6,10 +6,8 @@ namespace StringCalculatorKata
     {
         internal static int Add(string numbers)
         {
-            if (numbers == "1")
-                return 1;
-            if (numbers == "2")
-                return 2;
+            if (numbers != "")
+                return Convert.ToInt32(numbers);
             return 0;
         }
     }

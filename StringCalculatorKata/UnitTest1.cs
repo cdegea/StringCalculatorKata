@@ -13,7 +13,7 @@ namespace StringCalculatorKata
         {
             var result = StringCalculator.Add(numbers);
             Assert.Equal(expectedNumber, result);
-        }
+        }        
 
     }
 }
