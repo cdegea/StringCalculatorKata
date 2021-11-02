@@ -13,7 +13,13 @@ namespace StringCalculatorKata
         {
             var result = StringCalculator.Add(numbers);
             Assert.Equal(expectedNumber, result);
-        }        
+        }
 
+        [Fact]
+        public void Numbers1And2Returns3()
+        {
+            var result = StringCalculator.Add("1,2");
+            Assert.Equal(3, result);
+        }
     }
 }
