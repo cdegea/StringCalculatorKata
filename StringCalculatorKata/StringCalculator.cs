@@ -20,6 +20,17 @@ namespace StringCalculatorKata
                 .Replace(delimiter, ',')
                 .Split(',').ToList()
                 .Select(x => Convert.ToInt32(x));
+
+            if (numbersValue.Any(x => x < 0))
+            {
+                var negativos = numbersValue.Where(x => x < 0).ToList();
+                var textNegativos = "negatives not allowed";
+                for (int i = 0; i < negativos.Count(); i++)
+                {
+                    textNegativos += " " + negativos[i];
+                }
+                throw new InvalidOperationException(textNegativos);
+            }
            
             return numbersValue.Sum();
         }
