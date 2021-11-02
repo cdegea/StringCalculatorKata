@@ -14,6 +14,7 @@ namespace StringCalculatorKata
         [InlineData ("2,4", 6)]
         [InlineData("1,2,3", 6)]
         [InlineData("1\n2,3", 6)]
+        [InlineData("//;\n1;2", 3)]
         public void NumbersInStringReturnsNumbers(string numbers, int expectedNumber)
         {
             var result = StringCalculator.Add(numbers);

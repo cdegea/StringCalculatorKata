@@ -7,9 +7,20 @@ namespace StringCalculatorKata
     {
         internal static int Add(string numbers)
         {
-            if (numbers.Contains(","))
+            var delimiter = '\n';
+
+            if (numbers.StartsWith("//"))
             {
-                return numbers.Split(',', '\n').ToList().Sum(Convert.ToInt32);
+                delimiter = numbers.ElementAt(2);
+            }
+
+            numbers = numbers
+                .Replace($"//{delimiter}", "")
+                .Replace(delimiter, ',');
+
+            if (numbers.Contains(",") || numbers.Contains('\n'))
+            {
+                return numbers.Split(',').ToList().Sum(Convert.ToInt32);
             }
 
             if (numbers != "")
