@@ -28,5 +28,12 @@ namespace StringCalculatorKata
             var result = StringCalculator.Add("2,3");
             Assert.Equal(5, result);
         }
+
+        [Fact]
+        public void Numbers2And4Returns6()
+        {
+            var result = StringCalculator.Add("2,4");
+            Assert.Equal(6, result);
+        }
     }
 }
