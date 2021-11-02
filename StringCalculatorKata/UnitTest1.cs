@@ -19,5 +19,12 @@ namespace StringCalculatorKata
             Assert.Equal(1, result);
         }
 
+        [Fact]
+        public void String2Returns2()
+        {
+            var result = StringCalculator.Add("2");
+            Assert.Equal(2, result);
+        }
+
     }
 }
