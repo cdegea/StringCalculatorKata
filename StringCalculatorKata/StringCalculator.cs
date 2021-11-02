@@ -8,24 +8,20 @@ namespace StringCalculatorKata
         internal static int Add(string numbers)
         {
             var delimiter = '\n';
+            if (numbers == "") return 0;
 
             if (numbers.StartsWith("//"))
             {
                 delimiter = numbers.ElementAt(2);
             }
 
-            numbers = numbers
+            var numbersValue = numbers
                 .Replace($"//{delimiter}", "")
-                .Replace(delimiter, ',');
-
-            if (numbers.Contains(",") || numbers.Contains('\n'))
-            {
-                return numbers.Split(',').ToList().Sum(Convert.ToInt32);
-            }
-
-            if (numbers != "")
-                return Convert.ToInt32(numbers);
-            return 0;
+                .Replace(delimiter, ',')
+                .Split(',').ToList()
+                .Select(x => Convert.ToInt32(x));
+           
+            return numbersValue.Sum();
         }
     }
 }
