@@ -5,25 +5,14 @@ namespace StringCalculatorKata
 {
     public class UnitTest1
     {
-        [Fact]
-        public void EmptyStringReturns0()
+        [Theory]
+        [InlineData ("", 0)]
+        [InlineData ("1", 1)]
+        [InlineData ("2", 2)]
+        public void NumbersInStringReturnsNumbers(string numbers, int expectedNumber)
         {
-            var result = StringCalculator.Add("");
-            Assert.Equal(0, result);
-        }
-
-        [Fact]
-        public void String1Returns1()
-        {
-            var result = StringCalculator.Add("1");
-            Assert.Equal(1, result);
-        }
-
-        [Fact]
-        public void String2Returns2()
-        {
-            var result = StringCalculator.Add("2");
-            Assert.Equal(2, result);
+            var result = StringCalculator.Add(numbers);
+            Assert.Equal(expectedNumber, result);
         }
 
     }
