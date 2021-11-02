@@ -9,7 +9,7 @@ namespace StringCalculatorKata
         {
             if (numbers.Contains(","))
             {
-                return numbers.Split(',').ToList().Sum(Convert.ToInt32);
+                return numbers.Split(',', '\n').ToList().Sum(Convert.ToInt32);
             }
 
             if (numbers != "")
